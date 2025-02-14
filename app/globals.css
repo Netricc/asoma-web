@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Readex+Pro:wght@160..700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-black: #091527;
+  --color-gray-dark: #64748b;
+  --color-gray-light: #9db6d9;
+  --color-primary: #2170e5;
+  --color-primary-dark-1: #275eae;
+  --color-primary-dark-2: #16335c;
+  --color-secondary: #7c2ee9;
+  --color-dark-1: #5e26ae;
+  --color-dark-2: #35195c;
+  --color-error: #ef4444;
+  --color-valid: #22c55e;
+  --color-white: #f6f6f6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", serif;
+  color: var(--color-black);
+  background-color: var(--color-white);
+}
+
+.font-inter {
+  font-family: "Inter", serif;
+}
+
+.font-readex {
+  font-family: "Readex Pro", serif;
+}
+
+.font-dm {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+}
+
+.container-max {
+  @apply max-w-[1120px] mx-auto max-xl:px-[60px] max-lg:px-[46px] max-md:px-[36px] max-sm:px-[26px];
+}
