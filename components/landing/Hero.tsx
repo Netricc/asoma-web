@@ -9,7 +9,7 @@ import Image from "next/image";
 const Hero = () => {
   const { language } = useContext(AppContext) ?? { language: "en" };
   return (
-    <section className="w-full min-h-screen max-sm:h-[110vh] container-max pt-[126px] pb-[92px]">
+    <section className="w-full min-h-screen max-sm:h-[110vh] container-max pt-[126px] max-sm:pt-[62px] max-lg:pt-[82px]  pb-[92px]">
       <div
         className={`w-full justify-between items-center flex ${
           language === "en" ? "" : language === "ar" ? "flex-row-reverse" : ""
@@ -20,7 +20,7 @@ const Hero = () => {
           className={`w-[654px] ${language === "ar" ? "text-right" : ""}`}
         >
           <h1
-            className={`text-[46px] ${
+            className={`text-[46px] max-sm:text-[40px] ${
               language === "en"
                 ? "font-dm"
                 : language === "ar"
@@ -37,7 +37,7 @@ const Hero = () => {
               : "Asoma – Der ultimative Ort, um dein erstaunliches Produkt zum Leben zu erwecken. Behalte das im Hinterkopf..."}
           </h1>
           <p
-            className={`mt-[48px] text-[22px] font-inter text-gray-dark ${
+            className={`mt-[48px] max-sm:mt-[32px] max-sm:text-[18px] text-[22px] font-inter text-gray-dark ${
               language === "ar" ? "text-right" : ""
             }`}
           >
@@ -49,7 +49,7 @@ const Hero = () => {
           </p>
 
           <Button
-            className={`bg-primary mt-[82px] text-white font-inter text-lg font-medium py-[14px] px-[18px] rounded-full hover:bg-primary-dark duration-200 active:bg-primary-darker ${
+            className={`bg-primary max-sm:text-base max-sm:mt-[62px] mt-[82px] text-white font-inter text-lg font-medium py-[14px] px-[18px] rounded-full hover:bg-primary-dark duration-200 active:bg-primary-darker ${
               language === "ar" ? "text-right" : ""
             }`}
           >

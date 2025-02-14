@@ -48,13 +48,13 @@ const Footer = () => {
           }`}
         >
           <div
-            className={`flex flex-wrap ${
+            className={`flex ${
               language === "ar" ? "flex-row-reverse" : ""
-            } gap-[146px]`}
+            } gap-[146px] max-sm:gap-[60px]`}
           >
             {/* Pages Section */}
-            <div>
-              <h3 className="text-[20px] font-semibold text-white font-inter">
+            <div className="max-sm:w-[30%]">
+              <h3 className="w-full text-[20px] font-semibold text-white font-inter">
                 {language === "en"
                   ? "Pages"
                   : language === "ar"
@@ -80,8 +80,8 @@ const Footer = () => {
             </div>
 
             {/* Social Media Section */}
-            <div>
-              <h3 className="text-[20px] font-semibold text-white font-inter">
+            <div className="max-sm:w-[70%]">
+              <h3 className="text-[20px] w-full  font-semibold text-white font-inter">
                 {language === "en"
                   ? "Social Media"
                   : language === "ar"

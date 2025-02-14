@@ -72,7 +72,7 @@ const Header = () => {
       </Button>
 
       <button
-        className={`w-[50px] z-30 h-[50px] rounded-full  hidden justify-center items-center duration-200 hover:bg-primary active:bg-primary max-sm:flex rounded-tr-[16px] ${
+        className={`w-[50px] z-30 h-[50px] rounded-full  hidden justify-center items-center duration-200 hover:bg-primary active:bg-primary max-sm:flex  ${
           showMobileMenu ? "bg-primary" : "bg-black"
         } ${
           showMobileMenu
@@ -80,11 +80,11 @@ const Header = () => {
                 language === "en"
                   ? "right-[26px]"
                   : language === "ar"
-                  ? "left-[26px]"
-                  : "right-[26px] "
+                  ? "left-[26px] "
+                  : "right-[26px]"
               } `
             : ""
-        }`}
+        } ${language === "ar" ? "rounded-tl-[16px]" : "rounded-tr-[16px]"}`}
         onClick={() => setShowMobileMenu(!showMobileMenu)}
       >
         <Image src={mobileMenuIcon} alt="mobilemenuicon" />
@@ -97,7 +97,7 @@ const Header = () => {
         <div className="flex flex-col gap-[100px] items-center">
           {navLinks[language]?.map((link) => (
             <Link
-              className="text-white text-[38px] font-medium font-inter hover:text-primary duration-200 active:text-primary-dark"
+              className="text-white text-[30px] font-medium font-inter hover:text-primary duration-200 active:text-primary-dark"
               href={link.href}
               key={link.href}
             >
