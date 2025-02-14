@@ -9,7 +9,7 @@ import Image from "next/image";
 const Hero = () => {
   const { language } = useContext(AppContext) ?? { language: "en" };
   return (
-    <section className="w-full h-screen container-max pt-[132px]">
+    <section className="w-full min-h-screen container-max pt-[132px] pb-">
       <div
         className={`w-full justify-between items-center flex ${
           language === "en" ? "" : language === "ar" ? "flex-row-reverse" : ""
