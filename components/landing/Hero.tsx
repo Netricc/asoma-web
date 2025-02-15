@@ -35,9 +35,9 @@ const Hero = () => {
   }, [language]);
 
   return (
-    <section className="w-full min-h-screen max-sm:h-[110vh] container-max pt-[126px] max-sm:pt-[62px] max-lg:pt-[82px]  pb-[92px]">
+    <section className="w-full container-max min-h-screen flex flex-col gap-[160px] max-lg:gap-[80px] max-sm:gap-[60px]  max-sm:h-[110vh]  pt-[126px] max-sm:pt-[62px] max-lg:pt-[82px]  pb-[92px]">
       <div
-        className={`w-full justify-between items-center flex ${
+        className={`w-full  justify-between items-center flex ${
           language === "en" ? "" : language === "ar" ? "flex-row-reverse" : ""
         }`}
       >
@@ -109,6 +109,22 @@ const Hero = () => {
             alt="hero Image"
           />
         </div>
+      </div>
+
+      <div className="loop w-full bg-red-50 relative">
+        <h2
+          className={`absolute left-[100%] ${
+            language === "ar"
+              ? "font-readex text-right font-semibold"
+              : "font-dm text-left"
+          } text-[92px] max-lg:text-[82px] max-sm:text-[62px]`}
+        >
+          {language === "en"
+            ? "We build strong, functional, and beautifully designed products that your clients will love."
+            : language === "ar"
+            ? "نحن نبني منتجات قوية، عملية، ومصممة بشكل جميل سيحبها عملاؤك."
+            : "Wir bauen starke, funktionale und wunderschön gestaltete Produkte, die Ihre Kunden lieben werden."}
+        </h2>
       </div>
     </section>
   );

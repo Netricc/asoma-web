@@ -25,8 +25,15 @@
 }
 body {
   font-family: "Inter", serif;
+  width: 100vw;
+  overflow-x: hidden;
   color: var(--color-black);
   background-color: var(--color-white);
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .font-inter {
@@ -159,4 +166,24 @@ body {
     transform: translateY(66%) scale(0.65);
     opacity: 0.8;
   }
+}
+
+@keyframes slide {
+  to {
+    left: -200%;
+  }
+}
+
+.loop {
+  width: 200%;
+
+  white-space: nowrap;
+}
+
+.loop h2 {
+  animation-name: slide;
+  animation-duration: 8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  user-select: none;
 }
