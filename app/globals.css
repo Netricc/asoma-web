@@ -16,6 +16,7 @@
   --color-error: #ef4444;
   --color-valid: #22c55e;
   --color-white: #f6f6f6;
+  --slide-direction: "left";
 }
 
 * {
@@ -168,9 +169,29 @@ img {
   }
 }
 
-@keyframes slide {
+@keyframes left {
   to {
     left: -200%;
+  }
+}
+
+@keyframes right {
+  to {
+    right: -200%;
+  }
+}
+
+@media (max-width: 768px) {
+  @keyframes left {
+    to {
+      left: -540%;
+    }
+  }
+
+  @keyframes right {
+    to {
+      right: -540%;
+    }
   }
 }
 
@@ -181,7 +202,7 @@ img {
 }
 
 .loop h2 {
-  animation-name: slide;
+  animation-name: var(--slide-direction);
   animation-duration: 8s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;

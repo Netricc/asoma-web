@@ -32,10 +32,16 @@ const Hero = () => {
       y: 0,
       delay: 0.3,
     });
+
+    if (language === "ar") {
+      document.documentElement.style.cssText = "--slide-direction : right";
+    } else {
+      document.documentElement.style.cssText = "--slide-direction : left";
+    }
   }, [language]);
 
   return (
-    <section className="w-full container-max min-h-screen flex flex-col gap-[160px] max-lg:gap-[80px] max-sm:gap-[60px]  max-sm:h-[110vh]  pt-[126px] max-sm:pt-[62px] max-lg:pt-[82px]  pb-[92px]">
+    <section className="w-full container-max h-screen flex flex-col gap-[160px] max-lg:gap-[80px] max-sm:gap-[70px]  pt-[126px] max-sm:pt-[62px] max-lg:pt-[82px] pb-[62px] max-md:pb-[42px] max-sm:pb-[32px] ">
       <div
         className={`w-full  justify-between items-center flex ${
           language === "en" ? "" : language === "ar" ? "flex-row-reverse" : ""
@@ -47,7 +53,7 @@ const Hero = () => {
         >
           <h1
             id="hero-title"
-            className={`text-[46px] opacity-0 translate-y-[40px] max-sm:text-[40px] ${
+            className={`z-10 text-[46px] opacity-0 translate-y-[40px] max-sm:text-[40px] ${
               language === "en"
                 ? "font-dm"
                 : language === "ar"
@@ -111,13 +117,16 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="loop w-full bg-red-50 relative">
+      <div
+        dir={`${language === "ar" ? "rtl" : "ltr"}`}
+        className="loop w-full bg-red-50 relative"
+      >
         <h2
-          className={`absolute left-[100%] ${
+          className={`absolute   ${
             language === "ar"
-              ? "font-readex text-right font-semibold"
-              : "font-dm text-left"
-          } text-[92px] max-lg:text-[82px] max-sm:text-[62px]`}
+              ? "font-readex text-right font-semibold right-[200%]"
+              : "font-dm text-left left-[100%]"
+          } text-[92px] max-lg:text-[82px] max-sm:text-[72px]`}
         >
           {language === "en"
             ? "We build strong, functional, and beautifully designed products that your clients will love."
