@@ -196,16 +196,16 @@ img {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 608px) {
   @keyframes left {
     to {
-      left: -540%;
+      left: -900%;
     }
   }
 
   @keyframes right {
     to {
-      right: -540%;
+      right: -900%;
     }
   }
 }
@@ -217,7 +217,7 @@ img {
 
 .loop h2 {
   animation-name: var(--slide-direction);
-  animation-duration: 8s;
+  animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   user-select: none;

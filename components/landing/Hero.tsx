@@ -45,7 +45,7 @@ const Hero = () => {
   }, [language]);
 
   return (
-    <section className="w-full min-h-screen flex flex-col gap-[160px] max-lg:gap-[80px] max-sm:gap-[70px]  pt-[126px] max-sm:pt-[62px] max-lg:pt-[82px] pb-[62px] max-md:pb-[42px] max-sm:pb-[32px] ">
+    <section className="w-full min-h-screen flex flex-col gap-[160px] max-lg:gap-[80px] max-sm:gap-[70px]  pt-[126px] max-sm:pt-[62px] max-lg:pt-[82px] pb-[52px] max-lg:pb-[40px] max-md:pb-[20px] max-sm:pb-[10px] ">
       <div
         className={`w-full  justify-between items-center flex  container-max ${
           language === "en" ? "" : language === "ar" ? "flex-row-reverse" : ""
