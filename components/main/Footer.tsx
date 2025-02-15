@@ -46,8 +46,12 @@ const Footer = () => {
         </header>
 
         <div className={`w-full mt-[56px] flex items-center justify-between`}>
-          <div className={`flex  gap-[146px] max-sm:gap-[30px]`}>
-            <div className="max-sm:w-[70%]">
+          <div
+            className={`flex  gap-[146px] max-lg:gap-[80px] max-md:gap-[40px] ${
+              language === "de" ? "max-sm:gap-[16px]" : "max-sm:gap-[32px]"
+            }  `}
+          >
+            <div className="">
               <h3 className="text-[20px] w-full  font-semibold text-white font-inter">
                 {language === "en"
                   ? "Social Media"
@@ -72,7 +76,7 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-            <div className="max-sm:w-[30%]">
+            <div className="">
               <h3 className="w-full text-[20px] font-semibold text-white font-inter">
                 {language === "en"
                   ? "Pages"

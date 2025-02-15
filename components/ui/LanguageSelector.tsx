@@ -18,7 +18,6 @@ const LanguageSelector = () => {
     setLanguage(newLanguage);
     localStorage.setItem("language", newLanguage);
 
-    // Store a flag in sessionStorage
     sessionStorage.setItem("scrollToTop", "true");
 
     location.reload();
@@ -27,7 +26,7 @@ const LanguageSelector = () => {
   useEffect(() => {
     if (sessionStorage.getItem("scrollToTop")) {
       window.scrollTo(0, 0);
-      sessionStorage.removeItem("scrollToTop"); // Remove the flag
+      sessionStorage.removeItem("scrollToTop");
     }
   }, []);
 
