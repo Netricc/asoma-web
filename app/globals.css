@@ -11,8 +11,8 @@
   --color-primary-dark-1: #275eae;
   --color-primary-dark-2: #16335c;
   --color-secondary: #7c2ee9;
-  --color-dark-1: #5e26ae;
-  --color-dark-2: #35195c;
+  --color-secondary-dark-1: #5e26ae;
+  --color-secondary-dark-2: #35195c;
   --color-error: #ef4444;
   --color-valid: #22c55e;
   --color-white: #f6f6f6;
@@ -24,6 +24,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Inter", serif;
   width: 100vw;
@@ -56,6 +61,54 @@ img {
 }
 
 /* Custom Style */
+
+/* Lenis Style */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Scroll bar styles */
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-black);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb:focus {
+  background: var(--color-secondary-dark-2);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary-dark-1);
+}
 
 .mobileNavLink:hover span {
   color: var(--color-white);

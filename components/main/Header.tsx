@@ -4,7 +4,7 @@ import { AppContext } from "@/lib/context/store";
 import { navLinks } from "@/lib/constants";
 import Link from "next/link";
 import { Button } from "@/components/";
-import { mobileMenuIcon } from "@/assets/icons";
+import { mobileMenuIcon, startIcon } from "@/assets/icons";
 import Image from "next/image";
 import gsap from "gsap";
 
@@ -29,9 +29,8 @@ const Header = () => {
 
   return (
     <header
-      className={`w-full container-max h-[100px] flex justify-between items-center py-[26px] ${
-        language === "en" ? "" : language === "ar" ? "flex-row-reverse" : ""
-      }`}
+      dir={`${language === "ar" ? "rtl" : "ltr"}`}
+      className={`w-full container-max h-[100px] flex justify-between items-center py-[26px] `}
     >
       <Link
         onClick={() => {
@@ -51,7 +50,7 @@ const Header = () => {
         {language === "en"
           ? "© Asoma"
           : language === "ar"
-          ? "أسوما ©"
+          ? "© أسوما"
           : "© Asoma"}
       </Link>
       <nav className="flex flex-row gap-[70px] max-lg:gap-[52px] items-center max-sm:hidden">
@@ -66,13 +65,30 @@ const Header = () => {
         ))}
       </nav>
 
-      <Button className="bg-primary max-sm:hidden w-[160px] text-white font-inter text-lg font-medium py-[14px] px-[18px] rounded-full hover:bg-primary-dark duration-200 active:bg-primary-darker">
-        <Link href={"/contact"}>
-          {language === "en"
-            ? "Start now"
-            : language === "ar"
-            ? "ابدأ الآن"
-            : "Jetzt starten"}
+      <Button className="bg-primary max-sm:hidden items-center text-white  py-[14px] px-[18px] font-inter text-lg font-medium  rounded-full hover:bg-primary-dark duration-200 active:bg-primary-darker">
+        <Link
+          className={`flex w-fit mx-auto flex-row  items-center`}
+          href={"/contact"}
+        >
+          <span>
+            {language === "en"
+              ? "Start now"
+              : language === "ar"
+              ? "ابدأ الآن"
+              : "Jetzt starten"}
+          </span>
+
+          <Image
+            className={`${
+              language === "ar"
+                ? "mr-[12px] scale-x-[-1]"
+                : "ml-[12px] scale-x-1"
+            } `}
+            src={startIcon}
+            alt="go icon"
+            width={26}
+            height={26}
+          ></Image>
         </Link>
       </Button>
 

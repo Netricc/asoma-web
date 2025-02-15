@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Image from "next/image";
 import { AppContext } from "@/lib/context/store";
 import { arrowUpDownIcon } from "@/assets/icons";
@@ -17,7 +17,19 @@ const LanguageSelector = () => {
     const newLanguage = e.target.value as "en" | "ar" | "de";
     setLanguage(newLanguage);
     localStorage.setItem("language", newLanguage);
+
+    // Store a flag in sessionStorage
+    sessionStorage.setItem("scrollToTop", "true");
+
+    location.reload();
   };
+
+  useEffect(() => {
+    if (sessionStorage.getItem("scrollToTop")) {
+      window.scrollTo(0, 0);
+      sessionStorage.removeItem("scrollToTop"); // Remove the flag
+    }
+  }, []);
 
   return (
     <div
@@ -31,9 +43,24 @@ const LanguageSelector = () => {
         onFocus={() => setIsOpen(true)}
         onBlur={() => setIsOpen(false)}
       >
-        <option value="en">English</option>
-        <option value="ar">العربية</option>
-        <option value="de">Deutschland</option>
+        <option
+          className="hover:bg-primary cursor-pointer appearance-none"
+          value="en"
+        >
+          English
+        </option>
+        <option
+          className="hover:bg-primary cursor-pointer appearance-none"
+          value="ar"
+        >
+          العربية
+        </option>
+        <option
+          className="hover:bg-primary cursor-pointer appearance-none"
+          value="de"
+        >
+          Deutschland
+        </option>
       </select>
 
       {/* Arrow with rotation when open */}

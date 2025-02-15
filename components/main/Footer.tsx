@@ -9,7 +9,6 @@ import { navLinks, socialMediaLinks } from "@/lib/constants";
 import LanguageSelector from "../ui/LanguageSelector";
 
 const Footer = () => {
-  // Ensure AppContext is defined before using
   const context = useContext(AppContext);
   if (!context) {
     throw new Error("Footer must be used within an AppProvider");
@@ -20,7 +19,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-black pt-[76px] pb-[36px]">
+    <footer
+      dir={`${language === "ar" ? "rtl" : "ltr"}`}
+      className="w-full bg-black pt-[76px] pb-[36px]"
+    >
       <div className="h-full container-max w-full">
         <header
           className={`w-full ${language === "ar" ? "text-right" : "text-left"}`}
@@ -38,22 +40,13 @@ const Footer = () => {
             {language === "en"
               ? "© Asoma"
               : language === "ar"
-              ? "أسوما ©"
+              ? "© أسوما"
               : "© Asoma"}
           </Link>
         </header>
 
-        <div
-          className={`w-full mt-[56px] flex items-center justify-between ${
-            language === "ar" ? "flex-row-reverse" : ""
-          }`}
-        >
-          <div
-            className={`flex ${
-              language === "ar" ? "flex-row-reverse" : ""
-            } gap-[146px] max-sm:gap-[30px]`}
-          >
-            {/* Social Media Section */}
+        <div className={`w-full mt-[56px] flex items-center justify-between`}>
+          <div className={`flex  gap-[146px] max-sm:gap-[30px]`}>
             <div className="max-sm:w-[70%]">
               <h3 className="text-[20px] w-full  font-semibold text-white font-inter">
                 {language === "en"
@@ -79,7 +72,6 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-            {/* Pages Section */}
             <div className="max-sm:w-[30%]">
               <h3 className="w-full text-[20px] font-semibold text-white font-inter">
                 {language === "en"
@@ -107,7 +99,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Footer Image */}
           <div className="max-md:hidden">
             <Image
               src={footerImage}
@@ -118,21 +109,19 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Section */}
         <div
-          className={`border-t-2 mt-[100px] border-gray-light flex justify-between items-center w-full h-[92px] pt-[36px] pb-[10px] ${
-            language === "ar" ? "flex-row-reverse" : ""
-          }`}
+          className={`border-t-2 mt-[100px] border-gray-light flex justify-between items-center w-full h-[92px] pt-[36px] pb-[10px]`}
         >
           <p
             className={`text-lg max-sm:text-base text-white font-inter font-medium ${
               language === "ar" ? "text-right" : "text-left"
             }`}
           >
-            {language === "ar" ? "٢٠٢٥ © إصدار" : "2025 © Edition"}
+            {language === "ar"
+              ? `${new Date().getFullYear()} © إصدار`
+              : `Edition © ${new Date().getFullYear()}`}
           </p>
 
-          {/* Language Selector */}
           <div className="relative w-[156px]">
             <LanguageSelector />
           </div>
