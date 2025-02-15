@@ -69,10 +69,10 @@ const Header = () => {
       <Button className="bg-primary max-sm:hidden w-[160px] text-white font-inter text-lg font-medium py-[14px] px-[18px] rounded-full hover:bg-primary-dark duration-200 active:bg-primary-darker">
         <Link href={"/contact"}>
           {language === "en"
-            ? "Contact"
+            ? "Start now"
             : language === "ar"
-            ? "التواصل"
-            : "Kontakt"}
+            ? "ابدأ الآن"
+            : "Jetzt starten"}
         </Link>
       </Button>
 
@@ -120,10 +120,10 @@ const Header = () => {
           >
             <Link href={"/contact"}>
               {language === "en"
-                ? "Contact"
+                ? "Start now"
                 : language === "ar"
-                ? "التواصل"
-                : "Kontakt"}
+                ? "ابدأ الآن"
+                : "Jetzt starten"}
             </Link>
           </Button>
         </div>
