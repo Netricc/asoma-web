@@ -39,6 +39,10 @@ export default function RootLayout({
     <StrictMode>
       <html lang="en">
         <head>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
           <meta property="og:title" content={metaTitle} />
           <meta property="og:description" content={metaDescription} />
           <meta property="og:site_name" content="Asoma" />

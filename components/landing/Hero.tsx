@@ -36,14 +36,18 @@ const Hero = () => {
     if (language === "ar") {
       document.documentElement.style.cssText = "--slide-direction : right";
     } else {
-      document.documentElement.style.cssText = "--slide-direction : left";
+      if (language === "de") {
+        document.documentElement.style.cssText = "--slide-direction : left";
+      } else {
+        document.documentElement.style.cssText = "--slide-direction : left";
+      }
     }
   }, [language]);
 
   return (
-    <section className="w-full container-max h-screen flex flex-col gap-[160px] max-lg:gap-[80px] max-sm:gap-[70px]  pt-[126px] max-sm:pt-[62px] max-lg:pt-[82px] pb-[62px] max-md:pb-[42px] max-sm:pb-[32px] ">
+    <section className="w-full min-h-screen flex flex-col gap-[160px] max-lg:gap-[80px] max-sm:gap-[70px]  pt-[126px] max-sm:pt-[62px] max-lg:pt-[82px] pb-[62px] max-md:pb-[42px] max-sm:pb-[32px] ">
       <div
-        className={`w-full  justify-between items-center flex ${
+        className={`w-full  justify-between items-center flex  container-max ${
           language === "en" ? "" : language === "ar" ? "flex-row-reverse" : ""
         }`}
       >
@@ -119,7 +123,7 @@ const Hero = () => {
 
       <div
         dir={`${language === "ar" ? "rtl" : "ltr"}`}
-        className="loop w-full bg-red-50 relative"
+        className="loop relative w-full"
       >
         <h2
           className={`absolute   ${

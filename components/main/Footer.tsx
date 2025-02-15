@@ -51,7 +51,7 @@ const Footer = () => {
           <div
             className={`flex ${
               language === "ar" ? "flex-row-reverse" : ""
-            } gap-[146px] max-sm:gap-[60px]`}
+            } gap-[146px] max-sm:gap-[30px]`}
           >
             {/* Social Media Section */}
             <div className="max-sm:w-[70%]">
@@ -108,7 +108,7 @@ const Footer = () => {
           </div>
 
           {/* Footer Image */}
-          <div className="max-lg:hidden">
+          <div className="max-md:hidden">
             <Image
               src={footerImage}
               alt="footer image"
