@@ -4,6 +4,7 @@ import type { StaticImageData } from "next/image";
 import favicon from "@/public/favicon.ico";
 import { AppProvider } from "@/lib/context/store";
 import "./globals.css";
+import { StrictMode } from "react";
 
 import ClientLayout from "./client-layout";
 
@@ -35,26 +36,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        <meta property="og:title" content={metaTitle} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:site_name" content="Asoma" />
-        <meta property="og:locale" content={"en"} />
-        <meta property="og:type" content="website" />
-        <meta property="twitter:title" content={metaTitle} />
-        <meta property="twitter:description" content={metaDescription} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="google" content="notranslate" />
-        <link rel="icon" href={faviconUrl} />
-      </head>
-      <body
-        className={`${dmSerifDisplay.className} ${inter.className} ${readexPro.className} antialiased`}
-      >
-        <AppProvider>
-          <ClientLayout>{children}</ClientLayout>
-        </AppProvider>
-      </body>
-    </html>
+    <StrictMode>
+      <html lang="en">
+        <head>
+          <meta property="og:title" content={metaTitle} />
+          <meta property="og:description" content={metaDescription} />
+          <meta property="og:site_name" content="Asoma" />
+          <meta property="og:locale" content={"en"} />
+          <meta property="og:type" content="website" />
+          <meta property="twitter:title" content={metaTitle} />
+          <meta property="twitter:description" content={metaDescription} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="google" content="notranslate" />
+          <link rel="icon" href={faviconUrl} />
+        </head>
+        <body
+          className={`${dmSerifDisplay.className} ${inter.className} ${readexPro.className} antialiased`}
+        >
+          <AppProvider>
+            <ClientLayout>{children}</ClientLayout>
+          </AppProvider>
+        </body>
+      </html>
+    </StrictMode>
   );
 }

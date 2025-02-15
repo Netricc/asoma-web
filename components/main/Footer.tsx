@@ -6,6 +6,7 @@ import Image from "next/image";
 import { AppContext } from "@/lib/context/store";
 import { footerImage } from "@/assets/images";
 import { navLinks, socialMediaLinks } from "@/lib/constants";
+import LanguageSelector from "../ui/LanguageSelector";
 
 const Footer = () => {
   // Ensure AppContext is defined before using
@@ -13,7 +14,7 @@ const Footer = () => {
   if (!context) {
     throw new Error("Footer must be used within an AppProvider");
   }
-  const { language, setLanguage } = context as {
+  const { language } = context as {
     language: "en" | "ar" | "de";
     setLanguage: (lang: "en" | "ar" | "de") => void;
   };
@@ -52,33 +53,6 @@ const Footer = () => {
               language === "ar" ? "flex-row-reverse" : ""
             } gap-[146px] max-sm:gap-[60px]`}
           >
-            {/* Pages Section */}
-            <div className="max-sm:w-[30%]">
-              <h3 className="w-full text-[20px] font-semibold text-white font-inter">
-                {language === "en"
-                  ? "Pages"
-                  : language === "ar"
-                  ? "الصفحات"
-                  : "Webseiten"}
-              </h3>
-              <ul
-                className={`text-gray-light mt-[24px] flex flex-col gap-[20px] ${
-                  language === "ar" ? "text-right" : "text-left"
-                }`}
-              >
-                {navLinks[language].map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      className="hover:text-secondary active:text-secondary-dark duration-200"
-                      href={link.href}
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             {/* Social Media Section */}
             <div className="max-sm:w-[70%]">
               <h3 className="text-[20px] w-full  font-semibold text-white font-inter">
@@ -95,6 +69,32 @@ const Footer = () => {
               >
                 {socialMediaLinks.map((link) => (
                   <li key={link.name}>
+                    <Link
+                      className="hover:text-secondary active:text-secondary-dark duration-200"
+                      href={link.href}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Pages Section */}
+            <div className="max-sm:w-[30%]">
+              <h3 className="w-full text-[20px] font-semibold text-white font-inter">
+                {language === "en"
+                  ? "Pages"
+                  : language === "ar"
+                  ? "الصفحات"
+                  : "Webseiten"}
+              </h3>
+              <ul
+                className={`text-gray-light mt-[24px] flex flex-col gap-[20px] ${
+                  language === "ar" ? "text-right" : "text-left"
+                }`}
+              >
+                {navLinks[language].map((link) => (
+                  <li key={link.href}>
                     <Link
                       className="hover:text-secondary active:text-secondary-dark duration-200"
                       href={link.href}
@@ -125,7 +125,7 @@ const Footer = () => {
           }`}
         >
           <p
-            className={`text-lg text-white font-inter font-medium ${
+            className={`text-lg max-sm:text-base text-white font-inter font-medium ${
               language === "ar" ? "text-right" : "text-left"
             }`}
           >
@@ -133,15 +133,9 @@ const Footer = () => {
           </p>
 
           {/* Language Selector */}
-          <select
-            className="w-[156px] rounded-full px-[26px] py-[12px] text-base font-medium text-white outline-none cursor-pointer border-white hover:border-gray-light focus:border-primary bg-transparent border-2"
-            value={language}
-            onChange={(e) => setLanguage(e.target.value as "en" | "ar" | "de")}
-          >
-            <option value="en">English</option>
-            <option value="ar">العربية</option>
-            <option value="de">Deutschland</option>
-          </select>
+          <div className="relative w-[156px]">
+            <LanguageSelector />
+          </div>
         </div>
       </div>
     </footer>

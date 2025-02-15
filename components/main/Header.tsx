@@ -34,8 +34,13 @@ const Header = () => {
       }`}
     >
       <Link
+        onClick={() => {
+          setShowMobileMenu(false);
+        }}
         href={"/"}
         className={`text-[32px] ${
+          showMobileMenu ? "text-white" : "text-black"
+        } duration-200  z-40 ${
           language === "en"
             ? "font-dm"
             : language === "ar"
@@ -72,7 +77,7 @@ const Header = () => {
       </Button>
 
       <button
-        className={`w-[50px] z-30 h-[50px] rounded-full  hidden justify-center items-center duration-200 hover:bg-primary active:bg-primary max-sm:flex  ${
+        className={`w-[50px] z-40 h-[50px] rounded-full  hidden justify-center items-center duration-200 hover:bg-primary active:bg-primary max-sm:flex  ${
           showMobileMenu ? "bg-primary" : "bg-black"
         } ${
           showMobileMenu
@@ -92,18 +97,35 @@ const Header = () => {
 
       <nav
         id="mobileNav"
-        className="fixed items-center justify-center  max-sm:flex hidden top-0 right-0 translate-y-[-100%] rounded-b-full  bg-black w-full h-screen"
+        className="fixed z-30 items-center justify-center  max-sm:flex hidden top-0 right-0 translate-y-[-100%] rounded-b-full  bg-black w-full h-screen"
       >
         <div className="flex flex-col gap-[100px] items-center">
           {navLinks[language]?.map((link) => (
             <Link
-              className="text-white text-[30px] font-medium font-inter hover:text-primary duration-200 active:text-primary-dark"
+              onClick={() => {
+                setShowMobileMenu(false);
+              }}
+              className="text-white text-[30px] mobileNavLink font-medium font-inter hover:text-primary  duration-200 active:text-primary-dark"
               href={link.href}
               key={link.href}
             >
-              {link.name}
+              <span className="text-secondary duration-200">•</span> {link.name}
             </Link>
           ))}
+          <Button
+            onClick={() => {
+              setShowMobileMenu(false);
+            }}
+            className="bg-primary  w-[160px] text-white font-inter text-lg font-medium py-[14px] px-[18px] rounded-full hover:bg-primary-dark duration-200 active:bg-primary-darker"
+          >
+            <Link href={"/contact"}>
+              {language === "en"
+                ? "Contact"
+                : language === "ar"
+                ? "التواصل"
+                : "Kontakt"}
+            </Link>
+          </Button>
         </div>
       </nav>
     </header>

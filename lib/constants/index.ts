@@ -51,15 +51,15 @@ export const socialMediaLinks = [
     href: "#instagram",
   },
   {
-    name: "X",
-    href: "#x",
-  },
-  {
     name: "Dribbble",
     href: "#dribbble",
   },
   {
     name: "Youtube",
     href: "#youtube",
+  },
+  {
+    name: "X",
+    href: "#x",
   },
 ];

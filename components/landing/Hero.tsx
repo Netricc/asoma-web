@@ -1,13 +1,39 @@
 "use client";
 
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { AppContext } from "@/lib/context/store";
 import Button from "../ui/Button";
 import { heroImage } from "@/assets/images";
 import Image from "next/image";
+import gsap from "gsap";
+import { goIcon } from "@/assets/icons";
 
 const Hero = () => {
   const { language } = useContext(AppContext) ?? { language: "en" };
+  const heroImageRef = useRef(null);
+
+  useEffect(() => {
+    gsap.to(heroImageRef.current, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.5,
+      ease: "power2.out",
+      delay: 0.6,
+    });
+
+    gsap.to("#hero-title", {
+      opacity: 1,
+      y: 0,
+    });
+
+    gsap.to("#hero-descr", {
+      opacity: 1,
+      y: 0,
+      delay: 0.3,
+    });
+  }, [language]);
+
   return (
     <section className="w-full min-h-screen max-sm:h-[110vh] container-max pt-[126px] max-sm:pt-[62px] max-lg:pt-[82px]  pb-[92px]">
       <div
@@ -20,7 +46,8 @@ const Hero = () => {
           className={`w-[654px] ${language === "ar" ? "text-right" : ""}`}
         >
           <h1
-            className={`text-[46px] max-sm:text-[40px] ${
+            id="hero-title"
+            className={`text-[46px] opacity-0 translate-y-[40px] max-sm:text-[40px] ${
               language === "en"
                 ? "font-dm"
                 : language === "ar"
@@ -37,7 +64,8 @@ const Hero = () => {
               : "Asoma – Der ultimative Ort, um dein erstaunliches Produkt zum Leben zu erwecken. Behalte das im Hinterkopf..."}
           </h1>
           <p
-            className={`mt-[48px] max-sm:mt-[32px] max-sm:text-[18px] text-[22px] font-inter text-gray-dark ${
+            id="hero-descr"
+            className={`mt-[48px] opacity-0 translate-y-[40px] max-sm:mt-[32px] max-sm:text-[18px] text-[22px] font-inter text-gray-dark ${
               language === "ar" ? "text-right" : ""
             }`}
           >
@@ -49,21 +77,35 @@ const Hero = () => {
           </p>
 
           <Button
-            className={`bg-primary max-sm:text-base max-sm:mt-[62px] mt-[82px] text-white font-inter text-lg font-medium py-[14px] px-[18px] rounded-full hover:bg-primary-dark duration-200 active:bg-primary-darker ${
+            className={`bg-primary flex max-sm:text-base max-sm:mt-[62px] mt-[82px] text-white   font-inter text-lg font-medium py-[14px] px-[18px] rounded-full hover:bg-primary-dark duration-200 active:bg-primary-darker ${
               language === "ar" ? "text-right" : ""
             }`}
           >
-            {language === "en"
-              ? "View Services"
-              : language === "ar"
-              ? "عرض الخدمات"
-              : "Dienstleistungen anzeigen"}
+            <span>
+              {language === "en"
+                ? "View Services"
+                : language === "ar"
+                ? "عرض الخدمات"
+                : "Dienstleistungen anzeigen"}
+            </span>
+            <Image
+              className={`${
+                language === "ar"
+                  ? "mr-[12px] scale-x-[-1]"
+                  : "ml-[12px] scale-x-1"
+              } `}
+              src={goIcon}
+              alt="go icon"
+            ></Image>
           </Button>
         </div>
         <div className="max-lg:hidden">
           <Image
+            ref={heroImageRef}
             src={heroImage}
-            className={`${language === "ar" ? "scale-x-[-1]" : ""}`}
+            className={`${
+              language === "ar" ? "scale-x-[-1]" : ""
+            } opacity-0 scale-0 `}
             alt="hero Image"
           />
         </div>
