@@ -5,6 +5,7 @@ import Footer from "./main/Footer";
 import LanguageSelector from "./ui/LanguageSelector";
 import Features from "./landing/Features";
 import ServiceCard from "./ui/ServiceCard";
+import Services from "./Services/Services";
 export {
   Hero,
   Header,
@@ -13,4 +14,5 @@ export {
   LanguageSelector,
   Features,
   ServiceCard,
+  Services,
 };

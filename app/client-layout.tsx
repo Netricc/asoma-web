@@ -11,7 +11,12 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const { language } = useContext(AppContext) || {
+    language: "en",
+  };
+
   useEffect(() => {
+    console.log("First useEffect is running");
     const lenis = new Lenis();
     function raf(time: DOMHighResTimeStamp) {
       lenis.raf(time);
@@ -20,11 +25,9 @@ export default function ClientLayout({
     requestAnimationFrame(raf);
   }, []);
 
-  const { language } = useContext(AppContext) || { language: "en" };
-
   return (
     <div lang={language}>
-      <Loading />
+      {<Loading />}
       <Header />
       <main>{children}</main>
       <Footer />

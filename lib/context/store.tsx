@@ -12,6 +12,7 @@ interface AppContextType {
   language: string;
   setLanguage: (lang: string) => void;
   loading: boolean;
+  setLoading: (load: boolean) => void | undefined;
 }
 
 export const AppContext = createContext<AppContextType | null>(null);
@@ -36,7 +37,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   }, [language]);
 
   return (
-    <AppContext.Provider value={{ language, setLanguage, loading }}>
+    <AppContext.Provider value={{ language, setLanguage, loading, setLoading }}>
       {children}
     </AppContext.Provider>
   );

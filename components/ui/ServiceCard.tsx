@@ -49,14 +49,14 @@ const ServiceCard = ({
   return (
     <article
       id={`service-card-${id}`}
-      className={`h-[500px] max-lg:flex-col-reverse max-lg:gap-[40px] service-card  max-lg:min-h-[500px] flex items-center justify-between w-full ${
+      className={`h-[500px] max-lg:flex-col-reverse max-lg:gap-[40px] service-card max-lg:min-h-[500px] flex items-center justify-between w-full ${
         reverse ? "flex-row-reverse" : ""
       }`}
       dir={`${language === "ar" ? "rtl" : "ltr"}`}
     >
       <div>
         <h3
-          className={`text-[42px] max-md:text-[40px] max-lg:w-full font-medium ${
+          className={`text-[42px] max-md:text-[40px] max-w-[460px] font-medium ${
             language === "ar" ? "font-readex" : "font-dm"
           } max-sm:text-[36px]`}
         >
