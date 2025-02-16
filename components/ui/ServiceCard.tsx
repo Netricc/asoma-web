@@ -68,7 +68,7 @@ const ServiceCard = ({
         <Button className="bg-primary mt-[62px] max-sm:text-base max-sm:mt-[62px] text-white font-inter text-lg font-medium py-[14px] px-[18px] rounded-full hover:bg-primary-dark duration-200 active:bg-primary-darker">
           <Link
             className="flex w-fit mx-auto flex-row items-center"
-            href={"/services"}
+            href={"/pricing"}
           >
             <span>
               {language === "en"

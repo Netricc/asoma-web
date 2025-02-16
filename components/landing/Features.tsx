@@ -88,14 +88,14 @@ const Features = () => {
         />
       </div>
       <div className="w-full flex justify-center max-sm:text-base max-sm:mt-[100px] mt-[200px] ">
-        <Button className="bg-secondary text-white font-inter text-lg font-medium py-[14px] px-[18px] rounded-full hover:bg-secondary-dark duration-200 active:bg-secondary-darker">
+        <Button className="bg-primary text-white font-inter text-lg font-medium py-[14px] px-[18px] rounded-full hover:bg-primary-dark duration-200 active:bg-primary-darker">
           <Link className="flex w-fit flex-row items-center" href={"/services"}>
             <span>
               {language === "en"
-                ? "Visit Pricing"
+                ? "All Services"
                 : language === "ar"
-                ? "زيارة الأسعار"
-                : "Besuchsgebühren"}
+                ? "كل الخدمات"
+                : "Alle Dienstleistungen"}
             </span>
             <Image
               className={`${language === "ar" ? "mr-[12px]" : "ml-[12px]"}`}
