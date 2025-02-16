@@ -34,8 +34,6 @@ const ServiceCard = ({
         ease: "power1.out",
         scrollTrigger: {
           trigger: `#service-card-${id}`,
-          start: "top",
-          end: "top 50%",
           toggleActions: "play none none none",
           markers: false,
         },
