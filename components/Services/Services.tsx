@@ -142,10 +142,10 @@ const Services = () => {
             }`}
             description={`${
               language === "en"
-                ? "We provide a full web development service, from design to coding and deployment, including a free domain for 2 years. We also offer a subscription for website updates, once a month."
+                ? "We design and develop custom mobile and web apps, tailored to your needs, ensuring smooth user experiences and high performance. Let us help you bring your app idea to life."
                 : language === "ar"
-                ? "نحن نقدم خدمة تطوير ويب شاملة، بدءًا من التصميم إلى البرمجة والنشر، بما في ذلك دومين مجاني لمدة عامين. كما نوفر اشتراكًا لتحديثات الموقع شهريًا."
-                : " Wir bieten einen vollständigen Webentwicklungsservice an, von Design über Codierung bis hin zur Bereitstellung, einschließlich einer kostenlosen Domain für 2 Jahre. Wir bieten auch ein Abonnement für monatliche Website-Updates an."
+                ? "نصمم ونطور تطبيقات مخصصة للهواتف المحمولة والويب، مصممة خصيصًا لتلبية احتياجاتك، مما يضمن تجربة مستخدم سلسة وأداءً عاليًا. دعنا نساعدك في تحويل فكرتك إلى واقع."
+                : "Wir entwerfen und entwickeln maßgeschneiderte mobile und Web-Apps, die auf Ihre Bedürfnisse zugeschnitten sind, um reibungslose Benutzererlebnisse und hohe Leistung zu gewährleisten. Lassen Sie uns Ihnen helfen, Ihre App-Idee zum Leben zu erwecken."
             }`}
             reverse={true}
             img={appDevelopmentImage}
